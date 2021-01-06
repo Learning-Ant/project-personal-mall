@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.shoppingmall.mybatis.mapper.customer"> <!-- package (mybatis.mapper) . mapper name(mapper.xml) -->
+	<select id="login"  parameterType="dto.com.shoppingmall.dto.M_CustomerDto" resultType="int"  >
+		SELECT COUNT(*)
+		  FROM M_CUSTOMER
+		 WHERE M_CUSTOMER_ID=#{m_customer_id}
+		   AND M_CUSTOMER_PW=#{m_customer_pw}
+	</select> 
+</mapper>
