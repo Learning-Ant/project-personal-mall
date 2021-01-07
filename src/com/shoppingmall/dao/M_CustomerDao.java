@@ -20,13 +20,10 @@ public class M_CustomerDao {
 	}
 	
 	// method
-	public boolean login(M_CustomerDto m_customerDto) {
+	public M_CustomerDto login(M_CustomerDto m_customerDto) {
 		SqlSession ss = factory.openSession();
-		int result = ss.selectOne("com.shoppingmall.mybatis.mapper.customer.login", m_customerDto);
-		if (result >0) {
-			return true;
-		} else {
-			return false;
-		}
+		M_CustomerDto loginDto = ss.selectOne("com.shoppingmall.mybatis.mapper.customer.login", m_customerDto);
+		ss.close();
+		return loginDto;
 	}
 }

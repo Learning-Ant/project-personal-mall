@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.json.simple.JSONObject;
 
@@ -35,20 +36,19 @@ public class LoginPwCheck extends HttpServlet {
 		m_customerDto.setM_customer_id(m_customer_id);
 		m_customerDto.setM_customer_pw(m_customer_pw);
 		
-		boolean result = M_CustomerDao.getInstance().login(m_customerDto);
+		M_CustomerDto loginDto = M_CustomerDao.getInstance().login(m_customerDto);
 		
-		JSONObject data = new JSONObject();
+		JSONObject responseObj = new JSONObject();
 		
-		if (result) {
-			data.put("result", result);
-			data.put("m_customer_id", m_customer_id);
-			data.put("m_customer_pw", m_customer_pw);
+		if(loginDto != null) {
+			request.getSession().setAttribute("loginDto", loginDto);
+			responseObj.put("result", true);
 		} else {
-			data.put("result", result);
+			responseObj.put("result", false);
 		}
 		
 		PrintWriter out = response.getWriter();
-		out.println(data);
+		out.println(responseObj);
 		out.close();
 	}
 	

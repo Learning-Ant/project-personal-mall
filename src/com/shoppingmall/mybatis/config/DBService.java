@@ -16,7 +16,7 @@ public class DBService {
 	// DBService 생성자 : Singleton
 	private DBService() {
 		try {
-			String resource = "mybatis/config/sqlmap-config.xml"; // sqlmap-config의 경로 (sqlmap-config.xml이 resource다.)
+			String resource = "com/shoppingmall/mybatis/config/sqlmap-config.xml"; // sqlmap-config의 경로 (sqlmap-config.xml이 resource다.)
 			InputStream inputStream = Resources.getResourceAsStream(resource);
 			factory = new SqlSessionFactoryBuilder().build(inputStream);
 		} catch (Exception e) {

@@ -1,6 +1,7 @@
 package com.shoppingmall.controller;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -8,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.shoppingmall.command.customer.M_CustomerCommand;
+import com.shoppingmall.command.customer.M_CustomerLogoutCommand;
 import com.shoppingmall.common.PathNRedirect;
 
 
@@ -35,7 +37,10 @@ public class M_CustomerController extends HttpServlet {
 		try {
 			switch(cmd) {
 			// 커맨드
-			
+			case "/m_customerLogoutPage.customer" :
+				command = new M_CustomerLogoutCommand();
+				pathNRedirect = command.execute(request, response);
+				break;
 			// 단순이동
 			case "/m_customerLoginPage.customer" :
 			pathNRedirect = new PathNRedirect();
