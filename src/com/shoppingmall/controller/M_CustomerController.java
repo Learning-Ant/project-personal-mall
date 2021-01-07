@@ -43,10 +43,15 @@ public class M_CustomerController extends HttpServlet {
 				break;
 			// 단순이동
 			case "/m_customerLoginPage.customer" :
-			pathNRedirect = new PathNRedirect();
-			pathNRedirect.setPath("m_customer/loginPage.jsp");
-			pathNRedirect.setRedirect(false);
-			break;
+				pathNRedirect = new PathNRedirect();
+				pathNRedirect.setPath("m_customer/loginPage.jsp");
+				pathNRedirect.setRedirect(false);
+				break;
+			case "/m_customerSignUpPage.customer" :
+				pathNRedirect = new PathNRedirect();
+				pathNRedirect.setPath("m_customer/signUpPage.jsp");
+				pathNRedirect.setRedirect(false);
+				break;
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

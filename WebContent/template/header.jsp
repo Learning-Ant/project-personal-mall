@@ -36,6 +36,7 @@
 				</c:if>
 				<%-- 로그인 상태 --%>
 				<c:if test="${loginDto ne null }">
+					<li style="font-size:12px; font-weight:900;" ><a href="javascript:void(0)" >${loginDto.m_customer_id}(${loginDto.m_customer_name})</a>님 반갑습니다!</li>
 					<li><a href="/PersonalMall/m_customerLogoutPage.customer" >LOGOUT</a></li>
 					<li><a href="javascript:void(0)" >장바구니</a></li>
 					<li><a href="javascript:void(0)" >마이페이지</a></li>
